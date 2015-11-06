@@ -1,0 +1,129 @@
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+    <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="col-sm-12">
+        PROJECT TASK
+
+        <%= link_to project_tasks_path do %> <button type="button" class="btn btn-pill-left btn-primary">Back</button><% end %>
+
+
+        <h3><%= link_to project_path(@project_task.project) do %><%= @project_task.project.name %><% end %></h3>
+        <h3><%= @project_task.name %></h3>
+      </div>
+
+
+
+
+      <div class="col-sm-6">
+        <!-- START panel-->
+
+        <div class="panel panel-default">
+          <div class="panel-heading">General</div>
+          <div class="panel-body">
+            <p id="notice"><%= notice %></p>
+            <div class="row">
+              <label class="col-lg-2 viewlabel">Description</label>
+              <div class="col-lg-10 viewdata">
+                <%= @project_task.description %>&nbsp;
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-lg-2 viewlabel">Task Type</label>
+              <div class="col-lg-10 viewdata">
+                <%= @project_task.task_type_humanize %>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-lg-2 viewlabel">Province</label>
+              <div class="col-lg-10 viewdata">
+                <%= @project_task.province.name %>
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-lg-2 viewlabel">Location</label>
+              <div class="col-lg-10 viewdata">
+                <%= @project_task.location %>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-lg-2 viewlabel">Latitude</label>
+              <div class="col-lg-10 viewdata">
+                <%= @project_task.lat %>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-lg-2 viewlabel">Longitude</label>
+              <div class="col-lg-10 viewdata">
+                <%= @project_task.long %>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <label class="col-lg-2 viewlabel">Status</label>
+              <div class="col-lg-10 viewdata">
+                <% if !@project_task.actual_end.blank? and !@project_task.actual_start.nil?  %>
+                    Scheduled Completed
+                <% elsif !@project_task.actual_start.blank? and !@project_task.actual_start.nil? %>
+                    In Progress
+                <% else %>
+                    Planning Stage
+                <% end %>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <label class="col-lg-2 viewlabel">Dates</label>
+              <div class="col-lg-10 viewdata">
+
+                <table class="viewdates">
+                  <tr>
+                    <th></th>
+                    <th>Start</th>
+                    <th>End</th>
+                  </tr>
+                  <tr>
+                    <td>Planned</td>
+                    <td><%= @project_task.plan_start %></td>
+                    <td><%= @project_task.plan_end %></td>
+
+                  </tr>
+
+                  <tr>
+                    <td>Actual</td>
+                    <td><%= @project_task.actual_start %></td>
+                    <td><%= @project_task.actual_end %></td>
+
+                  </tr>
+                </table>
+
+
+
+              </div>
+            </div>
+
+
+
+
+
+
+            <%= link_to edit_project_task_path(@project_task) do %>  <button type="button" class="mb-sm btn btn-green">Edit Project</button><% end %> |
+
+            <%= link_to 'Destroy', @project_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+          </div>
+          <!-- END panel-->
+        </div>
+      </div>
+
+</div>
+      </div>
+    </section>
+

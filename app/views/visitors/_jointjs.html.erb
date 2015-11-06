@@ -1,0 +1,79 @@
+<div id="myholder"></div>
+<script type="text/javascript">
+
+    var graph = new joint.dia.Graph;
+
+    var paper = new joint.dia.Paper({
+        el: $('#myholder'),
+        width: 1200,
+        height: 1200,
+        model: graph,
+        gridSize: 1
+    });
+
+
+
+    var needs = new joint.shapes.basic.Rect({
+        position: { x: 100, y: 130 },
+        size: { width: 100, height: 30 },
+        attrs: { rect: { fill: 'grey' }, text: { text: 'Needs Analysis', fill: 'white' } }
+    });
+    var policy = new joint.shapes.basic.Rect({
+        position: { x: 300, y: 30 },
+        size: { width: 100, height: 30 },
+        attrs: { rect: { fill: 'green' }, text: { text: 'Policy', fill: 'white' } }
+    });
+
+    var proposals = new joint.shapes.basic.Rect({
+        position: { x: 300, y: 230 },
+        size: { width: 300, height: 30 },
+        attrs: { rect: { fill: 'blue' }, text: { text: 'Proposals', fill: 'white' } }
+    });
+
+    var study = new joint.shapes.basic.Rect({
+        position: { x: 400, y: 100 },
+        size: { width: 100, height: 30 },
+        attrs: { rect: { fill: 'red' }, text: { text: 'Study', fill: 'white' } }
+    });
+
+
+    var projects = new joint.shapes.basic.Rect({
+        position: { x: 700, y: 230 },
+        size: { width: 100, height: 30 },
+        attrs: { rect: { fill: 'orange' }, text: { text: 'Project', fill: 'white' } }
+    });
+
+
+    //var rect2 = rect.clone();
+    //rect2.translate(300);
+
+    //var rect3 = rect2.clone();
+    //rect3.translate(150, 300);
+
+
+    var link = new joint.dia.Link({
+        source: { id: needs.id },
+        target: { id: proposals.id }
+    });
+
+    var link2 = new joint.dia.Link({
+        source: { id: policy.id },
+        target: { id: proposals.id }
+    });
+
+    var link3 = new joint.dia.Link({
+        source: { id: study.id },
+        target: { id: proposals.id }
+    });
+
+    var link4 = new joint.dia.Link({
+        source: { id: proposals.id },
+        target: { id: projects.id }
+    });
+
+
+
+
+    graph.addCells([needs, proposals, policy, study, projects, link, link2, link3, link4]);
+
+</script>

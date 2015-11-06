@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div id="myholder"></div>
+    <script type="text/javascript">
+
+        var graph = new joint.dia.Graph;
+
+        var paper = new joint.dia.Paper({
+            el: $('#myholder'),
+            width: 1200,
+            height: 1200,
+            model: graph,
+            gridSize: 1
+        });
+
+        <%= @rectcss.html_safe %>
+
+
+        graph.on('all', function(eventName, cell) {
+            console.log(arguments);
+        });
+
+
+    </script>
+
+  </div>
+</div>

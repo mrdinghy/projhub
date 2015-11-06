@@ -1,0 +1,152 @@
+
+<style>
+    .navbox {
+        height: 200px;
+        font-size: 14px;
+        color: #fff;
+        padding: 15px;
+        border: 20px solid #fff;
+    }
+    .box-needs {
+        background-color: darkolivegreen;
+    }
+    .box-proposals {
+        background-color: #ccc;
+    }
+    .box-studies {
+        background-color: #449d44;
+    }
+
+    .box-projects {
+        background-color: darkblue;
+    }
+
+
+    .box-policies {
+        background-color: darkorange;
+        color: #fff;
+    }
+
+    .box-header {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .box-number {
+        font-size: 32px;
+        font-weight: bold;
+        color: #ccc;
+    }
+
+
+</style>
+
+
+
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+
+    <div class="content-heading">
+      <!-- START Language list-->
+
+      <!-- END Language list    -->
+      Visitors Main Page
+      <small data-localize="dashboard.WELCOME"></small>
+    </div>
+
+
+
+
+
+
+    <div class="row">
+      <div class="col-lg-12">
+
+
+
+        <h1>Premas ProjHub</h1>
+
+
+
+        <div class="row" style="background-color: #fff;">
+
+          <div class="col-md-3">
+            <div class="col-md-12 navbox box-policies">
+              <div class="box-header">Policy</div>
+              <div class="box-number"><%= @countpolicies %></div>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-3">
+            <%= link_to needs_path do %>
+                <div class="navbox box-needs">
+                  <div class="box-header">Needs Analysis</div>
+                </div>
+            <% end %>
+          </div>
+
+          <div class="col-md-3">
+            <div class="col-md-12 navbox box-proposals">
+              <div class="box-header">Proposals</div>
+            </div>
+
+          </div>
+
+          <div class="col-md-3">
+
+            <div class="navbox box-studies">
+              <div class="box-header">Studies</div>
+            </div>
+          </div>
+
+
+          <div class="col-md-3">
+            <div class="col-md-12 navbox box-projects">
+              <div class="box-header">Projects</div>
+              <div class="box-number"><%= @countprojects %></div>
+            </div>
+          </div>
+
+
+          <div class="col-md-3">
+            <div class="col-md-12 navbox box-projects">
+              <div class="box-header">Implementers</div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="col-md-12 navbox box-needs">
+              <div class="box-header">RFPs</div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="col-md-12 navbox box-needs">
+              <div class="box-header">Contracts</div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+<%#= render 'visitors/carousel' %>
+        <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+
+      </div>
+    </div>
+</section>

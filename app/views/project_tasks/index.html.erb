@@ -1,0 +1,25 @@
+
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+
+    <div class="content-heading">
+      Proposals
+      <small data-localize="dashboard.WELCOME"></small>
+      <div class="pull-right">
+        <%= link_to 'New Task', new_project_task_path, :class => "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+
+
+
+
+    <p id="notice"><%= notice %></p>
+
+    <%= render partial: 'project_tasks/project_tasks_table' %>
+
+    <br>
+
+
+  </div>
+</section>

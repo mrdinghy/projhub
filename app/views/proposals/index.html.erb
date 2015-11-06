@@ -1,0 +1,31 @@
+
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+
+    <div class="content-heading">
+       Proposals
+      <small data-localize="dashboard.WELCOME"></small>
+      <div class="pull-right">
+        <%= link_to 'New Proposal', new_proposal_path, :class => "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+
+
+
+
+    <p id="notice"><%= notice %></p>
+
+    <%= render partial: 'proposals/proposals_table' %>
+
+    <br>
+
+
+
+
+
+  </div>
+</section>
+
+
+

@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+    <small>Feasability Study</small><br>
+    <div class="content-heading">
+      <!-- START Language list-->
+
+      <!-- END Language list    -->
+
+      <%= @study.name %><br>
+      Proposal: <%= @study.proposal.name %>
+      <small data-localize="dashboard.WELCOME"></small>
+    </div>
+
+    <p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @study.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @study.description %>
+</p>
+
+<p>
+  <strong>Submit date:</strong>
+  <%= @study.submit_date %>
+</p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @study.problem %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @study.current %>
+</p>
+
+<p>
+  <strong>Challenges:</strong>
+  <%= @study.challenges %>
+</p>
+
+<p>
+  <strong>Interventions:</strong>
+  <%= @study.interventions %>
+</p>
+
+<p>
+  <strong>Economic:</strong>
+  <%= @study.economic %>
+</p>
+
+<p>
+  <strong>Social:</strong>
+  <%= @study.social %>
+</p>
+
+<p>
+  <strong>Environmental:</strong>
+  <%= @study.environmental %>
+</p>
+
+<p>
+  <strong>Financial:</strong>
+  <%= @study.financial %>
+</p>
+
+<p>
+  <strong>Other:</strong>
+  <%= @study.other %>
+</p>
+
+<p>
+  <strong>Recommendations:</strong>
+  <%= @study.recommendations %>
+</p>
+
+<%= link_to 'Edit', edit_study_path(@study) %> |
+<%= link_to 'Back', studies_path %>
+
+
+      </div>
+    </section>

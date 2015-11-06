@@ -1,0 +1,56 @@
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%= @tabletitle %></h4>
+      </div>
+      <div class="panel-body">
+        <table id="example" class="hover" cellspacing="0" width="100%">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Project</th>
+            <th>Implementer</th>
+
+            <th>Status</th>
+            <th>Type</th>
+            <td>Province</td>
+            <th>Location</th>
+            <th>Value</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <% @projects.each do |project| %>
+              <tr>
+                <td><%= project.get_code %></td>
+                <td><%= link_to project.name, project %></td>
+                <td><%= link_to project.implementer do %><%= project.implementer.name %><% end %></td>
+
+                <td><%= project.get_status %></td>
+                <td><%= project.project_type.name %></td>
+
+                <td><%= project.province.name %></td>
+                <td><%= project.location %></td>
+                <td class="vright"> <%=  number_to_currency(project.project_value, precision: 0, unit: "") %></td>
+
+
+
+              </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END DATATABLE 1 -->

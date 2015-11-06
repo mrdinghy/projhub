@@ -1,0 +1,69 @@
+<%= form_for(@study) do |f| %>
+  <% if @study.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@study.errors.count, "error") %> prohibited this study from being saved:</h2>
+
+      <ul>
+      <% @study.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :submit_date %><br>
+    <%= f.datetime_select :submit_date %>
+  </div>
+  <div class="field">
+    <%= f.label :problem %><br>
+    <%= f.text_area :problem %>
+  </div>
+  <div class="field">
+    <%= f.label :current %><br>
+    <%= f.text_area :current %>
+  </div>
+  <div class="field">
+    <%= f.label :challenges %><br>
+    <%= f.text_area :challenges %>
+  </div>
+  <div class="field">
+    <%= f.label :interventions %><br>
+    <%= f.text_area :interventions %>
+  </div>
+  <div class="field">
+    <%= f.label :economic %><br>
+    <%= f.text_area :economic %>
+  </div>
+  <div class="field">
+    <%= f.label :social %><br>
+    <%= f.text_area :social %>
+  </div>
+  <div class="field">
+    <%= f.label :environmental %><br>
+    <%= f.text_area :environmental %>
+  </div>
+  <div class="field">
+    <%= f.label :financial %><br>
+    <%= f.text_area :financial %>
+  </div>
+  <div class="field">
+    <%= f.label :other %><br>
+    <%= f.text_area :other %>
+  </div>
+  <div class="field">
+    <%= f.label :recommendations %><br>
+    <%= f.text_area :recommendations %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

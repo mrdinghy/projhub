@@ -1,0 +1,269 @@
+
+
+
+
+<style>
+.image-map {
+background: url('/assets/img/oldmap.png');
+width: 916px;
+height: 499px;
+display: block;
+position: relative;
+margin-top:10px;
+float: left;
+}
+
+.image-map > a.map {
+position: absolute;
+display: block;
+/*border: 1px solid green;*/
+}
+
+
+</style>
+
+
+
+
+
+
+<!--
+<div class="row">
+  <div class="col-lg-12">
+
+    <div class="image-map">
+      <a class="map" rel="Johor" style="top: 353px; left: 240px; width: 93px; height: 61px;" href="/provinces/1"></a>
+      <a class="map" rel="kedah" style="top: 89px; left: 64px; width: 65px; height: 40px" href="/provinces/2"></a>
+      <a class="map" rel="panao" style="top: 238px; left: 180px; width: 120px; height: 53px" href="/provinces/6"></a>
+
+    </div>
+
+
+    </div>
+  </div>
+
+-->
+
+<div class="row">
+
+
+
+
+  <div class="col-lg-4">
+    <!-- START panel-->
+    <div id="panelDemo8" class="panel panel-primary">
+      <div class="panel-heading">Executive Summary</div>
+      <div class="panel-body">
+
+
+
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-2 vright">
+         <small>Number</small>
+        </div>
+        <div class="col-md-4 vright">
+          <small>Value (RM)</small>
+        </div>
+
+
+
+
+
+        <div class="col-md-6">
+          All Projects:
+        </div>
+        <div class="col-md-2 vright">
+          <%= @projectcount %>
+        </div>
+        <div class="col-md-4 vright">
+          <%= number_to_currency(@project_value, precision: 0, unit: "") %>
+        </div>
+
+
+
+        <div class="col-md-6">
+          Projects Completed:
+        </div>
+        <div class="col-md-2 vright">
+          <%= @projectscompleted %>
+        </div>
+        <div class="col-md-4 vright">
+          <%= number_to_currency(@projectscompleted_value, precision: 0, unit: "") %>
+        </div>
+
+        <div class="col-md-6">
+          Projects In Progress:
+        </div>
+        <div class="col-md-2 vright">
+          <%= @projectsinprogress %>
+        </div>
+        <div class="col-md-4 vright">
+          <%=  number_to_currency(@projectsinprogress_value, precision: 0, unit: "") %>
+        </div>
+
+        <div class="col-md-6">
+          Projects Planned:
+        </div>
+        <div class="col-md-2 vright">
+          <%= @projectsinplanning %>
+        </div>
+        <div class="col-md-4 vright">
+          <%=  number_to_currency(@projectsinplanning_value, precision: 0, unit: "") %>
+        </div>
+
+
+
+
+
+             </div>
+      <div class="panel-footer">Panel Footer</div>
+    </div>
+    <!-- END panel-->
+  </div>
+
+
+
+
+
+
+
+  <div class="col-lg-4">
+    <!-- START panel-->
+    <div id="panelDemo8" class="panel panel-primary">
+      <div class="panel-heading">By Province</div>
+      <div class="panel-body">
+
+
+
+        <div class="col-md-6">
+          <small>Province</small>
+        </div>
+        <div class="col-md-2 vright">
+          <small>Number</small>
+        </div>
+        <div class="col-md-4 vright">
+          <small>Value (RM)</small>
+        </div>
+
+
+
+
+
+        <% @provinces.each do |prov| %>
+            <% pcount= Project.where('province_id = ?', prov.id).count %>
+            <% psum = Project.where(:province_id => prov).sum(:project_value) %>
+            <div class="col-md-6">
+              <%= link_to prov do %><%= prov.name %> <% end %>
+            </div>
+            <div class="col-md-2 vright">
+              <%= pcount %>
+            </div>
+            <div class="col-md-4 vright">
+              <%=  number_to_currency(psum, precision: 0, unit: "") %>
+            </div>
+        <% end %>
+
+
+
+
+
+      </div>
+      <div class="panel-footer">Panel Footer</div>
+    </div>
+    <!-- END panel-->
+  </div>
+
+
+
+
+
+  <div class="col-lg-4">
+    <!-- START panel-->
+    <div id="panelDemo8" class="panel panel-primary">
+      <div class="panel-heading">By Project Type</div>
+      <div class="panel-body">
+
+
+
+        <div class="col-md-6">
+          <small>Project Type</small>
+        </div>
+        <div class="col-md-2 vright">
+          <small>Number</small>
+        </div>
+        <div class="col-md-4 vright">
+          <small>Value (RM)</small>
+        </div>
+
+
+
+        <% @projecttypes.each do |type| %>
+            <% tcount= Project.where('project_type_id = ?', type.id).count %>
+            <% tsum = Project.where(:project_type_id => type.id).sum(:project_value) %>
+
+
+
+
+            <div class="col-md-6">
+              <%= link_to type do %><%= type.name %><% end %>
+            </div>
+            <div class="col-md-2 vright">
+              <%= tcount %>
+            </div>
+            <div class="col-md-4 vright">
+              <%=  number_to_currency(tsum, precision: 0, unit: "") %>
+            </div>
+        <% end %>
+
+
+
+      </div>
+      <div class="panel-footer">Panel Footer</div>
+    </div>
+    <!-- END panel-->
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <!-- START date widget-->
+    <div class="panel widget">
+      <div class="row row-table">
+        <div class="col-xs-4 text-center bg-green pv-lg">
+          <!-- See formats: https://docs.angularjs.org/api/ng/filter/date-->
+          <div data-now="" data-format="MMMM" class="text-sm"></div>
+          <br>
+          <div data-now="" data-format="D" class="h2 mt0"></div>
+        </div>
+        <div class="col-xs-8 pv-lg">
+          <div data-now="" data-format="dddd" class="text-uppercase"></div>
+          <br>
+          <div data-now="" data-format="h:mm" class="h2 mt0"></div>
+          <div data-now="" data-format="a" class="text-muted text-sm"></div>
+        </div>
+      </div>
+    </div>
+    <!-- END date widget    -->
+  </div>
+
+
+
+
+</div>
+
+<script>
+$(document).ready(function() {
+$(".map").click(function() {
+alert("You clicked on " + $(this).attr('rel'));
+});
+});
+</script>

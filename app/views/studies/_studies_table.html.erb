@@ -1,0 +1,39 @@
+
+<script>
+    $(document).ready(function() {
+        $('#tbl_studies').DataTable();
+    } );
+</script>
+
+
+
+<table id="tbl_studies"  class="hover" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Proposal</th>
+
+    <th>Submit date</th>
+    <th>Problem</th>
+
+    <th>Recommendations</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @studies.each do |study| %>
+      <tr>
+        <td><%= study.get_code %></td>
+        <td><%= link_to study.name, study %></td>
+        <td><%= link_to study.proposal.name, study.proposal %></td>
+
+        <td><%= study.submit_date %></td>
+        <td><%= study.problem %></td>
+
+        <td><%= study.recommendations %></td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>

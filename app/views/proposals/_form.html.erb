@@ -1,0 +1,54 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">Horizontal form</div>
+  <div class="panel-body form-horizontal">
+
+    <%= simple_form_for(@proposal) do |f| %>
+            <% if @proposal.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@proposal.errors.count, "error") %> prohibited this proposal from being saved:</h2>
+
+              <ul>
+              <% @proposal.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Name</label>
+          <div class="col-lg-10">
+            <%= f.input :name, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Description</label>
+          <div class="col-lg-10">
+            <%= f.input :description, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Submitted Date</label>
+         <div class="col-lg-10">
+            <%= f.input :submit_date, :as => :date_picker, :class => "form-control", :label => false %>
+          </div>
+       </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Approval Date</label>
+         <div class="col-lg-10">
+            <%= f.input :approval_date, :as => :date_picker, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-offset-2 col-lg-10">
+            <%= f.button :submit, :class => "btn btn-primary btn-sm" %>
+          </div>
+
+<% end %>
+</div>
+</div>

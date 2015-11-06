@@ -1,0 +1,72 @@
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+
+    <div class="content-heading">
+      <!-- START Language list-->
+      <div class="pull-right">
+        <div class="btn-group">
+          <button type="button" data-toggle="dropdown" class="btn btn-default">English</button>
+          <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+            <li><a href="#" data-set-lang="en">English</a>
+            </li>
+            <li><a href="#" data-set-lang="es">Spanish</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- END Language list    -->
+      Dashboard
+      <small data-localize="dashboard.WELCOME"></small>
+    </div>
+
+
+
+
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- START panel-->
+        <div id="panelDemo14" class="panel panel-default">
+          <div class="panel-heading"><h2>Dashboard</h2></div>
+          <div class="panel-body">
+            <div role="tabpanel">
+              <!-- Nav tabs-->
+              <ul role="tablist" class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Summary</a>
+                </li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Map</a>
+                </li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">All Projects</a>
+                </li>
+              </ul>
+              <!-- Tab panes-->
+              <div class="tab-content">
+                <div id="home" role="tabpanel" class="tab-pane active">
+                  <%= render partial: 'home/dashboard01' %>
+
+
+                </div>
+                <div id="messages" role="tabpanel" class="tab-pane">
+                  <%= render partial: 'home/mappoints' %>
+                </div>
+                <div id="settings" role="tabpanel" class="tab-pane">
+                  <%= render partial: 'projects/projects_table' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END panel-->
+      </div>
+    </div>
+    <!-- END row-->
+
+
+
+
+        </div>
+
+    </section>
+

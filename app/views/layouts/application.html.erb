@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Rails Devise" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Devise" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag :modernizr %>
+    <link rel="stylesheet" href="/assets/jointjs/joint.css" />
+    <!-- <script src="js/jquery.min.js"></script>-->
+    <script src="/assets/jointjs/lodash.min.js"></script>
+    <script src="/assets/jointjs/backbone-min.js"></script>
+    <script src="/assets/jointjs/joint.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/sidebar' %>
+    <%#= render 'layouts/sidebar_right' %>
+
+
+    <%= render 'layouts/messages' %>
+       <%= yield %>
+
+
+</div>
+  </body>
+</html>

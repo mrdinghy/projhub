@@ -1,0 +1,42 @@
+
+<script>
+    $(document).ready(function() {
+        $('#tbl_tasks').DataTable();
+    } );
+</script>
+
+
+
+<table id="tbl_tasks"  class="hover" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+     <th>ID</th>
+    <th>Stage</th>
+    <th>Name</th>
+    <th>Weight</th>
+    <th>Complete</th>
+    <th>Value (RM)</th>
+    <th>Expended</th>
+    <td>Status</td>
+    <th>Actual Start</th>
+    <th>Actual End</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <% @project_tasks.each do |task| %>
+      <tr>
+        <td><%= task.get_code %></td>
+        <td><%= task.project_stage.name %></td>
+        <td><%= link_to task.name, task %></td>
+        <td><%= task.task_weight %></td>
+        <td><%= task.taskcomplete %></td>
+        <td> <%=  number_to_currency(task.task_value, precision: 0) %></td>
+        <td> <%=  number_to_currency(task.expenditures, precision: 0) %></td>
+        <td><%= task.get_status %></td>
+        <td><%= task.actual_start %></td>
+        <td><%= task.actual_end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

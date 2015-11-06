@@ -1,0 +1,52 @@
+
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+    <small>Program Need</small><br>
+    <div class="content-heading">
+      <!-- START Language list-->
+
+      <!-- END Language list    -->
+
+      <%= @policy.name %> (<%= @policy.reference %>)
+      <small data-localize="dashboard.WELCOME"></small>
+    </div>
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @policy.name %>
+    </p>
+
+    <p>
+      <strong>Reference:</strong>
+      <%= @policy.reference %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @policy.description %>
+    </p>
+
+    <p>
+      <strong>Effective date:</strong>
+      <%= @policy.effective_date %>
+    </p>
+
+    <p>
+      <strong>Expire date:</strong>
+      <%= @policy.expire_date %>
+    </p>
+
+    <%= link_to 'Edit', edit_policy_path(@policy) %> |
+    <%= link_to 'Back', policies_path %>
+    <%= link_to 'Destroy', @policy, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+
+
+
+  </div>
+</section>
+

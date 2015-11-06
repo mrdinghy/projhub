@@ -1,0 +1,46 @@
+
+
+
+
+        <table id="tbl_needs" class="hover" cellspacing="0" width="100%">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Need</th>
+            <th>Fiscal Year</th>
+            <th>Related Projects</th>
+            <th>Related Proposals</th>
+            <td>Description</td>
+
+          </tr>
+          </thead>
+          <tbody>
+          <% @needs.each do |need| %>
+            <%  numproposals = Identification.where('need_id = ?', need.id).count %>
+            <%  numprojects = Identification.where('need_id = ?', need.id).count %>
+
+
+              <tr>
+                <td><%= need.get_code %></td>
+                <td><%= link_to need.name, need %></td>
+                <td><%= need.fiscalyear %></td>
+
+                <td><%= numprojects %></td>
+                <td><%= numproposals %></td>
+                <td><%= need.description %></td>
+
+              </tr>
+
+
+
+          <% end %>
+
+          </tbody>
+        </table>
+
+
+        <script>
+            $(document).ready(function() {
+                $('#tbl_needs').DataTable();
+            } );
+        </script>

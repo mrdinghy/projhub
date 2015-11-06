@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-lg-4">
+    <!-- START widget-->
+    <div class="panel widget">
+      <div class="panel-body">
+        <div class="text-right text-muted">
+          <em class="fa fa-gamepad fa-2x"></em>
+        </div>
+        <%= @taskweightsum %>     <%= @taskweightsum %>
+        <h3 class="mt0"><%= @pct_work %>%</h3>
+        <p class="text-muted">Work Completed</p>
+        <div class="progress progress-striped progress-xs">
+          <div role="progressbar" aria-valuenow="<%= @pct_work %>" aria-valuemin="0" aria-valuemax="<%= @taskweightsum %>" class="progress-bar progress-bar-warning" style="width: <%= @pct_work %>%">
+            <span class="sr-only"><%= @pct_work %> Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END widget-->
+  </div>
+  <div class="col-lg-4">
+    <!-- START widget-->
+    <div class="panel widget">
+      <div class="panel-body">
+        <div class="text-right text-muted">
+          <em class="fa fa-coffee fa-2x"></em>
+        </div>
+        <h3 class="mt0"><%= @pct_expended %>%</h3>
+        <p class="text-muted">Funds Expended</p>
+        <div class="progress progress-striped progress-xs">
+          <div role="progressbar" aria-valuenow="<%= @pct_expended %>" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-green" style="width: <%= @pct_expended %>%">
+            <span class="sr-only"><%= @pct_expended %>% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END widget-->
+  </div>
+  <div class="col-lg-4">
+    <!-- START widget-->
+    <div class="panel widget">
+      <div class="panel-body">
+        <div class="text-right text-muted">
+          <em class="fa fa-upload fa-2x"></em>
+        </div>
+        <h3 class="mt0"><%= @pct_time %>%</h3>
+        <p class="text-muted">Time Completed</p>
+        <div class="progress progress-striped progress-xs">
+          <div role="progressbar" aria-valuenow="<%= @pct_time %>" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-info" style="width: <%= @pct_time %>%">
+            <span class="sr-only"><%= @pct_days %>% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END widget-->
+  </div>
+</div>
+<!-- END row-->
+

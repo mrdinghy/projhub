@@ -1,0 +1,48 @@
+
+
+<table id="tbl_proposals" class="hover" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Proposal</th>
+    <th>Status</th>
+    <th>Related Needs</th>
+    <th>Description</th>
+    <th>Submit Date</th>
+    <th>Approval Date</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <% @proposals.each do |proposal| %>
+      <%  numneeds = Possibility.where('proposal_id = ?', proposal.id).count %>
+
+
+      <tr>
+        <td><%= proposal.get_code %></td>
+
+        <td><%= link_to proposal.name, proposal %></td>
+        <td><%= proposal.get_status %></td>
+        <td><%= numneeds %></td>
+
+        <td><%= proposal.description %></td>
+        <td><%= proposal.submit_date %></td>
+        <td><%= proposal.approval_date %></td>
+
+
+
+      </tr>
+
+
+
+  <% end %>
+
+  </tbody>
+</table>
+
+
+<script>
+    $(document).ready(function() {
+        $('#tbl_proposals').DataTable();
+    } );
+</script>

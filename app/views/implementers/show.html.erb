@@ -1,0 +1,36 @@
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+    <small>Implementer</small><br>
+    <div class="content-heading">
+      <!-- START Language list-->
+
+      <!-- END Language list    -->
+
+      <%= @implementer.name %>
+      <small data-localize="dashboard.WELCOME"></small>
+    </div>
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @implementer.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @implementer.description %>
+    </p>
+
+    <%= link_to 'Edit', edit_implementer_path(@implementer) %> |
+    <%= link_to 'Back', implementers_path %>
+
+
+    <h3>Related Projects</h3>
+    <%= render partial: 'projects/projects_table' %>
+
+
+  </div>
+</section>
+

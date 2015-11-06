@@ -1,0 +1,45 @@
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+    <small>Program Need</small><br>
+    <div class="content-heading">
+      <!-- START Language list-->
+
+      <!-- END Language list    -->
+
+      <%= @need.name %>
+      <small data-localize="dashboard.WELCOME"></small>
+    </div>
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @need.name %>
+    </p>
+
+    <p>
+      <strong>Fiscalyear:</strong>
+      <%= @need.fiscalyear %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @need.description %>
+    </p>
+
+    <%= link_to 'Edit', edit_need_path(@need) %> |
+    <%= link_to 'Back', needs_path %> |
+    <%= link_to 'Destroy', need, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+
+    <h3>Related Projects</h3>
+    <%= render partial: 'projects/projects_table' %>
+
+    <h3>Related Proposals</h3>
+    <%= render partial: 'proposals/proposals_table' %>
+
+  </div>
+</section>
+

@@ -1,0 +1,160 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Project:   <%= @project_task.project.name %></h3>
+    <h2>Task:   <%= @project_task.name %></h2>
+  </div>
+  <div class="panel-body form-horizontal">
+
+    <%= simple_form_for(@project_task) do |f| %>
+        <% if @project_task.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@project_task.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+              <ul>
+                <% @project_task.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Name</label>
+          <div class="col-lg-10">
+            <%= f.input :name, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Description</label>
+          <div class="col-lg-10">
+            <%= f.input :description, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Province</label>
+          <div class="col-lg-10">
+            <%= f.collection_select(:province_id, Province.all, :id, :name, include_blank: true, :class => "form-control") %>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Type</label>
+          <div class="col-lg-10">
+            <%= f.select(:task_type, TaskType.to_a, :class => "form-control") %>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Location</label>
+          <div class="col-lg-10">
+            <%= f.input :location, :class => "form-control", :label => false %>
+
+          </div>
+        </div>
+
+
+        <div class="form-group">
+
+          <label class="col-lg-2 control-label viewlabel">Lat</label>
+          <div class="col-lg-10">
+            <%= f.input :lat, :class => "form-control", :label => false %>
+
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label class="col-lg-2 control-label viewlabel">Long</label>
+          <div class="col-lg-10">
+            <%= f.input :long, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Value</label>
+          <div class="col-lg-10">
+            <%= f.input :task_value, :class => "form-control", :label => false %>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Weight (percent of work)</label>
+          <div class="col-lg-10">
+            <%= f.input :task_weight, :class => "form-control", :label => false %>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label viewlabel">Completed</label>
+          <div class="col-lg-10">
+            <%= f.input :taskcomplete, :class => "form-control", :label => false, :size => "30" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Plan Start</label>
+          <div class="col-lg-10" style="width: 250px;">
+            <%= f.input :plan_start, :as => :date_picker, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Plan End</label>
+          <div class="col-lg-10" style="width: 250px;">
+
+            <%= f.input :plan_end, :as => :date_picker, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Actual Start</label>
+          <div class="col-lg-10" style="width: 250px;">
+            <%= f.input :actual_start, :as => :date_picker, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+
+          <label class="col-lg-2 control-label">Actual End</label>
+          <div class="col-lg-10" style="width: 250px;">
+            <%= f.input :actual_end, :as => :date_picker, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+          <div class="col-lg-offset-2 col-lg-10">
+            <%= f.button :submit, :class => "btn btn-primary btn-sm" %>
+          </div>
+
+    <% end %>
+    </div>
+  </div>
+
+
+
+

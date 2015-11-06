@@ -1,0 +1,51 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">Horizontal form</div>
+  <div class="panel-body form-horizontal">
+
+    <%= simple_form_for(@need) do |f| %>
+        <% if @need.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@need.errors.count, "error") %> prohibited this need from being saved:</h2>
+
+              <ul>
+                <% @need.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Name</label>
+          <div class="col-lg-10">
+            <%= f.input :name, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Description</label>
+          <div class="col-lg-10">
+            <%= f.input :description, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Fiscal Year</label>
+          <div class="col-lg-10">
+            <%= f.input :fiscalyear, :class => "form-control", :label => false %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-offset-2 col-lg-10">
+            <%= f.button :submit, :class => "btn btn-primary btn-sm" %>
+          </div>
+
+    <% end %>
+    </div>
+  </div>
+
+

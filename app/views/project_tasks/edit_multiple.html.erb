@@ -1,0 +1,87 @@
+
+
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+    <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- START panel-->
+        <div class="panel panel-default">
+          <div class="panel-heading"><h2>Project:   <%#= @project.name %></h2></div>
+          <div class="panel-body form-horizontal">
+
+
+          <h1>edit multiple</h1>
+
+<table border="1">
+<%= form_tag update_multiple_project_tasks_path, method: :put do %>
+      <%= hidden_field_tag 'project_url', params[:project_url] %>
+    <% @project_tasks.each do |task| %>
+          <tr>
+
+        <% stage = ProjectStage.find(task.project_stage_id) %>
+
+        <% if task.id < 10 %>
+            <% pid = 'TSK0' + task.id.to_s %>
+        <% else %>
+            <% pid = 'TSK' + task.id.to_s %>
+        <% end %>
+
+
+    <% if task.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(task.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+          <ul>
+            <% task.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <%= fields_for "project_tasks[]", task do |f| %>
+
+
+
+          <td><%= pid %> </td>
+
+
+          <td>
+            <%= task.name %>
+
+            <%= link_to 'View', project_task_path(task) %>
+            <%#= link_to "Edit", modalid, :class => "btn btn-primary btn-sm", "data-toggle" => "modal",  :locals => { :stage_id => stage.id }  %>
+
+          </td>
+
+          <td><%= f.text_field :task_value %></td>
+          <td> <%= f.text_field :task_weight %></td>
+          <td><%= f.date_select :plan_start, {:include_blank => true, :default => nil} %></td>
+          <td><%= f.date_select :plan_end, {:include_blank => true, :default => nil}  %></td>
+          <td>  <%= f.date_select :actual_start, {:include_blank => true, :default => nil}  %></td>
+          <td> <%= f.date_select :actual_end, {:include_blank => true, :default => nil}  %></td>
+
+
+
+
+
+        <% end %>
+
+    <% end %>
+      </tr>
+    <div class="actions">
+      <%= submit_tag "Update" %>
+    </div>
+<% end %>
+
+</table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

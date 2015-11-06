@@ -1,0 +1,1 @@
+json.extract! @study, :id, :name, :description, :submit_date, :problem, :current, :challenges, :interventions, :economic, :social, :environmental, :financial, :other, :recommendations, :created_at, :updated_at

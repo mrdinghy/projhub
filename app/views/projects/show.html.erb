@@ -1,0 +1,382 @@
+
+<section>
+  <!-- Page content-->
+
+
+
+
+
+
+
+
+
+
+  <div class="row">
+
+
+      <div class="col-sm-12">
+       <div class="col-sm-9">
+         <h3>Project: <%= @project.name %></h3>
+
+         <%= @days_project %> project
+
+
+
+       </div>
+        <div class="col-sm-3">
+          < <%= link_to 'Return to Projects', projects_path %>
+        </div>
+       </div>
+    </div>
+  <%= render partial: 'projects/status_bars' %>
+
+   <div class="row">
+
+  <div class="col-sm-6">
+  <!-- START panel-->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">General</div>
+    <div class="panel-body">
+
+
+      <div class="row">
+        <label class="col-lg-2 viewlabel">Project Type</label>
+        <div class="col-lg-10 viewdata">
+          <%= @project.project_type.name %>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-lg-2 viewlabel">Province</label>
+        <div class="col-lg-10 viewdata">
+          <%= @project.province.name %>
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="col-lg-2 viewlabel">Location</label>
+        <div class="col-lg-10 viewdata">
+          <%= @project.location %>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-lg-2 viewlabel">Latitude</label>
+        <div class="col-lg-10 viewdata">
+          <%= @project.lat %>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-lg-2 viewlabel">Longitude</label>
+        <div class="col-lg-10 viewdata">
+          <%= @project.long %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <label class="col-lg-2 viewlabel">Status</label>
+        <div class="col-lg-10 viewdata">
+         <%= @project.get_status %>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <label class="col-lg-2 viewlabel">Dates</label>
+        <div class="col-lg-10 viewdata">
+          <table class="viewdates">
+            <tr>
+              <th></th>
+              <th>Start</th>
+              <th>End</th>
+            </tr>
+            <tr>
+              <td>Planned</td>
+              <td><%= @project.plan_start %></td>
+              <td><%= @project.plan_end %></td>
+
+            </tr>
+
+            <tr>
+              <td>Actual</td>
+              <td><%= @project.actual_start %></td>
+              <td><%= @project.actual_end %></td>
+
+            </tr>
+          </table>
+
+        </div>
+      </div>
+  </div>
+  </div>
+
+        <!-- START panel-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Progress</div>
+          <div class="panel-body">
+
+            <div class="row">
+                <label class="col-lg-2 viewlabel">Total Work Weight:</label>
+                <div class="col-lg-1 viewdata">
+                    <%= @taskweightsum %>
+                </div>
+                <div class="col-lg-9">
+                    <% if @taskweightsum == 100 %>
+                        <em class="fa fa-check"></em>
+                    <% else %>
+                        <span class="alert-warning">
+                        <strong>Warning!</strong>Weights do not total 100.
+                        </span>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-lg-2 viewlabel">Total Work Weight:</label>
+                <div class="col-lg-1 viewdata">
+                    <%= @taskscompleted %>
+                </div>
+                <div class="col-lg-9">
+                    <% if @taskscompleted < 100 %>
+                    <em class="fa fa-check"></em>
+                    <% else %>
+                    <div role="alert" class="alert alert-warning">
+                    <strong>Warning!</strong>Completion cannot exceed 100.
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!-- END panel-->
+
+
+
+    <!-- START panel-->
+    <div class="panel panel-default">
+      <div class="panel-heading">Finance</div>
+      <div class="panel-body">
+
+        <div class="row">
+          <label class="col-lg-3 viewlabel">Total Budget Value:</label>
+          <div class="col-lg-2 viewdata">
+            <%= @project.project_value %>
+          </div>
+          <div class="col-lg-7">
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="col-lg-3 viewlabel">Expended to Date:</label>
+          <div class="col-lg-2 viewdata">
+            <%= @project.total_expended %>
+          </div>
+          <div class="col-lg-7">
+
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="col-lg-3 viewlabel">Sum of Tasks Expended:</label>
+          <div class="col-lg-2 viewdata">
+            <%= @tasksexpendedsum %>
+          </div>
+          <div class="col-lg-7">
+
+          </div>
+        </div>
+
+
+        <div class="row">
+          <label class="col-lg-3 viewlabel">Percent Expended:</label>
+          <div class="col-lg-2 viewdata">
+            <%= @pct_expended %>%
+          </div>
+          <div class="col-lg-7">
+
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+    <!-- END panel-->
+
+
+
+
+
+
+      <%= link_to edit_project_path(@project) do %>  <button type="button"  class = "mb-sm btn btn-primary">Edit Project</button><% end %> |
+
+
+
+
+</div>
+
+
+     <div class="col-sm-6">
+       <!-- START panel-->
+       <div class="panel panel-default">
+         <div class="panel-heading">Description</div>
+         <div class="panel-body">
+           <%= @project.description %>&nbsp;
+
+
+
+         </div>
+       </div>
+       <!-- END panel-->
+     </div>
+
+
+
+
+      <div class="col-sm-6">
+        <!-- START panel-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Attachments</div>
+          <div class="panel-body">
+
+
+            <% @projectdocuments.each do |doc| %>
+                <%= link_to doc.document_file_name , doc.document.url(:original, false) %>
+                <%= doc.document_updated_at %><br>
+            <% end %>
+
+
+
+            <%= simple_form_for @new_project_document do |form| %>
+                <%= form.hidden_field :project_id, :value => @project.id %>
+                <%= form.input :document, as: :file %>
+                <%= form.button :submit, :value => 'Upload Document', :class => "mb-sm btn btn-primary" %>
+            <% end %>
+
+
+
+
+
+
+          </div>
+        </div>
+        <!-- END panel-->
+      </div>
+
+
+      <div class="col-sm-6">
+        <!-- START panel-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Images</div>
+          <div class="panel-body">
+
+
+            <% @projectimages.each do |img| %>
+                <%= link_to img.document_file_name , img.document.url(:original, false) %>
+                <%= img.document_updated_at %><br>
+            <% end %>
+
+
+
+            <%= simple_form_for @new_project_image do |form| %>
+                <%= form.hidden_field :project_id, :value => @project.id %>
+                <%= form.input :image, as: :file %>
+                <%= form.button :submit, :value => 'Upload Image', :class => "mb-sm btn btn-primary"  %>
+            <% end %>
+
+
+
+
+
+
+          </div>
+        </div>
+        <!-- END panel-->
+      </div>
+
+
+
+
+
+
+     <div class="col-sm-6">
+       <!-- START panel-->
+       <div class="panel panel-default">
+         <div class="panel-heading">Program Needs Impacted</div>
+         <div class="panel-body">
+           <% @needs.each do |need| %>
+               <%= link_to need do %><%= need.name %><% end %> (<%= need.fiscalyear %>)<br>
+           <% end %>
+
+         </div>
+       </div>
+       <!-- END panel-->
+     </div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <div class="content-wrapper">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Project Tasks
+        </div>
+        <div class="panel-body">
+
+          <% if @project_tasks.count == 0 %>
+
+          No Projects Tasks assocatied with this project
+          <% else %>
+              <%= render partial: 'project_tasks/project_tasks_table' %>
+
+          <% end %>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END DATATABLE 1 -->
+
+
+
+
+    <div class="col-sm-6">
+      <!-- START panel-->
+      <div class="panel panel-default">
+        <div class="panel-heading">Admin</div>
+        <div class="panel-body">
+          <%= link_to 'Destroy Project', @project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "mb-sm btn btn-danger" %>
+
+
+
+        </div>
+      </div>
+      <!-- END panel-->
+    </div>
+
+ 
+
+
+</section>
+<!-- Modal Large-->

@@ -1,0 +1,64 @@
+<section>
+  <!-- Page content-->
+  <div class="content-wrapper">
+
+    <div class="content-heading">
+       Policies
+      <small data-localize="dashboard.WELCOME"></small>
+      <div class="pull-right">
+
+        <%= link_to 'New Policy', new_policy_path, :class => "btn btn-primary btn-sm" %>
+
+
+      </div>
+
+    </div>
+
+
+    <p id="notice"><%= notice %></p>
+
+
+
+    <br>
+
+    <table id="tbl_policies" class="hover" cellspacing="0" width="100%">
+      <thead>
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Reference</th>
+        <th>Description</th>
+        <th>Effective date</th>
+        <th>Expire date</th>
+
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @policies.each do |policy| %>
+          <tr>
+            <td><%= policy.get_code %></td>
+            <td><%= link_to policy.name, policy %></td>
+            <td><%= policy.reference %></td>
+            <td><%= policy.description %></td>
+            <td><%= policy.effective_date %></td>
+            <td><%= policy.expire_date %></td>
+
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
+
+
+
+  </div>
+</section>
+
+<script>
+    $(document).ready(function() {
+        $('#tbl_policies').DataTable();
+    } );
+</script>
+
