@@ -57,3 +57,22 @@
     border-radius: 4px;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
 }
+
+.topnavbar .nav-wrapper {
+    background-color: #993300;
+    background-image: linear-gradient(to right, #993300 0%, #FF5B08 100%);
+    background-repeat: repeat-x;
+}
+.navbar-brand {
+    font-size: 18px;
+    line-height: 20px;
+}
+.bodylink:a {
+    color: darkblue;
+}
+
+
+    .bodylink:focus {
+outline: 0 !important;
+}
+

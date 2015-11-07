@@ -155,7 +155,7 @@ display: block;
             <% pcount= Project.where('province_id = ?', prov.id).count %>
             <% psum = Project.where(:province_id => prov).sum(:project_value) %>
             <div class="col-md-6">
-              <%= link_to prov do %><%= prov.name %> <% end %>
+              <div class="bodylink"><%= link_to prov do %><%= prov.name %> <% end %></div>
             </div>
             <div class="col-md-2 vright">
               <%= pcount %>
