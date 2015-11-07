@@ -8,6 +8,5 @@
 /log
 /log/development.log
 !/log/.keep
-Gemfile
 Gemfile.lock
 
