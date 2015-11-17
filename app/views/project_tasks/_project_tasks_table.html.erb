@@ -13,6 +13,7 @@
      <th>ID</th>
     <th>Stage</th>
     <th>Name</th>
+    <th>Project</th>
     <th>Weight</th>
     <th>Complete</th>
     <th>Value (RM)</th>
@@ -29,6 +30,7 @@
         <td><%= task.get_code %></td>
         <td><%= task.project_stage.name %></td>
         <td><%= link_to task.name, task %></td>
+        <td><%= link_to task.project.name, task.project %></td>
         <td><%= task.task_weight %></td>
         <td><%= task.taskcomplete %></td>
         <td> <%=  number_to_currency(task.task_value, precision: 0) %></td>

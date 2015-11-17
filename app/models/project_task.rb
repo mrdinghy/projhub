@@ -19,7 +19,7 @@ class ProjectTask < ActiveRecord::Base
 
   def get_status
     if !self.actual_end.blank? and !self.actual_start.nil?
-      statusname = 'Scheduled Completed'
+      statusname = 'Completed'
     elsif !self.actual_start.blank? and !self.actual_start.nil?
       statusname = 'In Progress'
     else

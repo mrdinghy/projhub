@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     @taskscompleted = @project_tasks.where('taskcomplete is true').sum(:task_weight)
 
     @taskvaluesum = @project_tasks.sum(:task_value)
-    @tasksexpendedsum = @project_tasks.sum(:expenditures)
+    @tasksexpendedsum = @project.total_expended
 
 
 
@@ -33,17 +33,12 @@ class ProjectsController < ApplicationController
       @pct_work = (@taskscompleted.to_f / @taskweightsum.to_f * 100.0).round
     end
 
-    if @project.total_expended.nil? or @project.project_value.nil?
+
+
+    if @project.total_expended.nil? or (@project.project_value.nil? or @project.project_value == 0)
       @pct_expended = 0
     else
       @pct_expended = (@project.total_expended.to_f / @project.project_value.to_f * 100.0).round
-
-    end
-
-    if @tasksexpendedsum.nil? or (@taskvaluesum.nil? or @taskvaluesum == 0)
-      @pct_taskexpended = 0
-    else
-      @pct_taskexpended = (@tasksexpendedsum.to_f / @taskvaluesum.to_f * 100.0).round
     end
 
     if !@project.actual_end.nil?
