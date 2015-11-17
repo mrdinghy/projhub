@@ -1,0 +1,76 @@
+<div class="row">
+
+
+    <div class="col-lg-3 col-md-6">
+    <!-- START widget-->
+      <div class="panel widget bg-green">
+    <div class="row row-table">
+    <div class="col-xs-4 text-center bg-green-dark pv-lg">
+    <em class="icon-bubbles fa-3x"></em>
+    </div>
+    <div class="col-xs-8 pv-lg">
+    <div class="h2 mt0"><%= @projectcount %></div>
+    <div class="text-uppercase">Total Projects</div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+
+
+
+
+
+    <div class="col-lg-3 col-sm-6">
+    <!-- START widget-->
+         <div class="panel widget bg-primary">
+    <div class="row row-table">
+    <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+    <em class="icon-cloud-upload fa-3x"></em>
+    </div>
+    <div class="col-xs-8 pv-lg">
+    <div class="h2 mt0"><%= @projectsinplanning %></div>
+    <div class="text-uppercase">Planned</div>
+    </div>
+    </div>
+    </div>
+
+
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+        <div class="panel widget bg-purple">
+            <div class="row row-table">
+                <div class="col-xs-4 text-center bg-purple-dark pv-lg">
+                    <em class="icon-globe fa-3x"></em>
+                </div>
+                <div class="col-xs-8 pv-lg">
+                    <div class="h2 mt0"><%= @projectsinprogress %>
+                        <small></small>
+                    </div>
+                    <div class="text-uppercase">In Progress</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-lg-3 col-md-6">
+
+        <div class="panel widget bg-green">
+            <div class="row row-table">
+                <div class="col-xs-4 text-center bg-green-dark pv-lg">
+                    <em class="icon-bubbles fa-3x"></em>
+                </div>
+                <div class="col-xs-8 pv-lg">
+                    <div class="h2 mt0"><%= @projectscompleted %></div>
+                    <div class="text-uppercase">Completed</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
