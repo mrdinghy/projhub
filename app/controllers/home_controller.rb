@@ -19,6 +19,11 @@ class HomeController < ApplicationController
     @provinces = Province.all
 
 
+    @num_policies = Policy.all.count
+    @num_needs = Need.all.count
+    @num_studies = Study.all.count
+    @num_proposals = Proposal.all.count
+
   end
 
 # GET /needs/1

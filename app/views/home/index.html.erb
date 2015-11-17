@@ -21,7 +21,11 @@
             <div role="tabpanel">
               <!-- Nav tabs-->
               <ul role="tablist" class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Summary</a>
+                <li role="presentation" class="active"><a href="#alerts" aria-controls="home" role="tab" data-toggle="tab">Alerts</a>
+                </li>
+                <li role="presentation"><a href="#planning" aria-controls="home" role="tab" data-toggle="tab">Planning </a>
+                </li>
+                <li role="presentation"><a href="#implement" aria-controls="home" role="tab" data-toggle="tab">Implementation</a>
                 </li>
                 <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Map</a>
                 </li>
@@ -30,10 +34,19 @@
               </ul>
               <!-- Tab panes-->
               <div class="tab-content">
-                <div id="home" role="tabpanel" class="tab-pane active">
+                <div id="alerts" role="tabpanel" class="tab-pane active">
+                  <%= render partial: 'home/alerts' %>
+                </div>
+                <div id="planning" role="tabpanel" class="tab-pane">
+                  <%= render partial: 'home/dash02' %>
+                </div>
+                <div id="implement" role="tabpanel" class="tab-pane">
+                  <%= render partial: 'home/dash03' %>
                   <%= render partial: 'home/dashboard01' %>
 
-
+                </div>
+                <div id="planning" role="tabpanel" class="tab-pane">
+                  <%= render partial: 'home/dash02' %>
                 </div>
                 <div id="messages" role="tabpanel" class="tab-pane">
                   <%= render partial: 'home/mappoints' %>

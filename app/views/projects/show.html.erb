@@ -3,14 +3,6 @@
   <!-- Page content-->
 
 
-
-
-
-
-
-
-
-
   <div class="row">
 
 
@@ -18,7 +10,6 @@
        <div class="col-sm-9">
          <h3>Project: <%= @project.name %></h3>
 
-         <%= @days_project %> project
 
 
 
@@ -38,7 +29,12 @@
   <div class="panel panel-default">
     <div class="panel-heading">General</div>
     <div class="panel-body">
-
+      <div class="row">
+        <label class="col-lg-2 viewlabel">Implementer</label>
+        <div class="col-lg-10 viewdata">
+          <%= link_to @project.implementer.name, implementer_path %>
+        </div>
+      </div>
 
       <div class="row">
         <label class="col-lg-2 viewlabel">Project Type</label>
@@ -117,11 +113,11 @@
           <div class="panel-body">
 
             <div class="row">
-                <label class="col-lg-2 viewlabel">Total Work Weight:</label>
+                <label class="col-lg-3 viewlabel">Total Work Weight:</label>
                 <div class="col-lg-1 viewdata">
                     <%= @taskweightsum %>
                 </div>
-                <div class="col-lg-9">
+                <div class="col-lg-8">
                     <% if @taskweightsum == 100 %>
                         <em class="fa fa-check"></em>
                     <% else %>
@@ -133,11 +129,11 @@
             </div>
 
             <div class="row">
-                <label class="col-lg-2 viewlabel">Total Work Weight:</label>
+                <label class="col-lg-3 viewlabel">Completed Work Weight:</label>
                 <div class="col-lg-1 viewdata">
                     <%= @taskscompleted %>
                 </div>
-                <div class="col-lg-9">
+                <div class="col-lg-8">
                     <% if @taskscompleted < 100 %>
                     <em class="fa fa-check"></em>
                     <% else %>
@@ -180,7 +176,7 @@
         </div>
 
         <div class="row">
-          <label class="col-lg-3 viewlabel">Sum of Tasks Expended:</label>
+          <label class="col-lg-3 viewlabel">Expenditures from Tasks:</label>
           <div class="col-lg-2 viewdata">
             <%= @tasksexpendedsum %>
           </div>
